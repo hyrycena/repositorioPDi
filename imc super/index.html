@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Fazedor de IMC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  </head>
+  <body>
+    <p>
+      <label>Mete essa altura</label>
+      <input type="number" class="altura" id="altura" />
+    </p>
+    <p>
+      <label>Mete esse peso</label>
+      <input type="number" class="peso" id="peso" />
+    </p>
+
+    <button>Aperte-me</button>
+
+    <script>
+      var button = document.querySelector("button");
+      var valAltura = document.querySelector(".altura");
+      var valPeso = document.querySelector(".peso");
+
+      button.onclick = function () {
+        var altura = Number(valAltura.value);
+        var peso = Number(valPeso.value);
+        var resultado = Number(peso / (altura * altura)).toFixed(1);
+
+        if (resultado < 18.5) {
+          var tipoIMC = "Abaixo do peso";
+        } else if (resultado >= 18.5 && resultado <= 24.9) {
+          var tipoIMC = "Peso normal";
+        } else if (resultado >= 25 && resultado <= 29.9) {
+          var tipoIMC = "Sobrepeso";
+        } else if (resultado >= 30 && resultado <= 34.9) {
+          var tipoIMC = "Obesidade Grau I";
+        } else if (resultado >= 35 && resultado <= 39.9) {
+          var tipoIMC = "Obesidade Grau II ou considerada obesidade severa";
+        } else if (resultado >= 40) {
+          var tipoIMC = "Obesidade Grau III ou considerada obesidade mórbida";
+        }
+
+        alert(
+          "Seu IMC é: " +
+            resultado +
+            ", Ele é considerado um imc de valor: " +
+            tipoIMC
+        );
+      };
+    </script>
+  </body>
+</html>
