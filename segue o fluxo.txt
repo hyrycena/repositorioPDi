@@ -1,0 +1,28 @@
+git branch insira o nome da brantch aqui: usamo pa cria uma fodenda branch
+git checkout insira o nome da brantch aqui: usamos pra mudar de uma brancj pra outra
+git checkout -b insira o nome da brantch aqui:usamos pra crir um galho e dai mudar pra ele
+git add oq vc quer manda:vai aadicionar so oq expecificou para o commit
+git add .:  adicionar todas as alterações feitas nos arquivos do diretório atual 
+git commit -m "oq foi feito se mete aqui": usado pra commitar as mudança
+git push: é usado pra mete as mudanca no diretorio
+
+
+e age com voce como cria seu galho:
+1-git branch nome q descreve oq vai ser feito
+2-git checkout nome da branch criada
+
+
+e agr com vcs como manda um commit:
+1-git add e oq vai ser mandado (se for mandar tudo usa .)
+2-git commit "msg de commit" 
+3-git push 
+
+fluxo no dia a dia entao
+1-git branch nome q descreve oq vai ser feito
+2-git checkout nome da branch criada
+
+despois de muda tudo e faze o trabaio
+1-git branch nome q descreve oq vai ser feito
+2-git checkout nome da branch criada
+
+
