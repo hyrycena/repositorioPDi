@@ -6,6 +6,27 @@
     <title>Fazedor de IMC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script>
+      function mascra(input) {
+        let valor = input.value.replace(/\D/g, "");
+
+        if (valor.length > 1) {
+          valor = valor.slice(0, 1) + "." + valor.slice(1, 3);
+        }
+
+        if (valor.length > 4) {
+          valor = valor.slice(0, 4);
+        }
+
+        input.value = valor;
+      }
+
+      function mascraletra(input) {
+        let valor = input.value.replace(/\D/g, "");
+
+        input.value = valor;
+      }
+    </script>
   </head>
   <body>
     <div class="container">
@@ -13,18 +34,77 @@
         <label>A calculadora que calcula o IMC de forma 99,9% exata</label>
       </header>
 
-      <div class="centralizador">
-        <div>
-          <label>Informe essa altura: </label>
-          <input type="number" class="altura" id="altura" maxlength="3"/>
+      <div class="containers">
+        <div class="centralizadorTexto">
+          <div>
+            <label class="textin">Quem somos?</label>
+          </div>
+          <div>
+            <div class="textin">
+              A Carlinhos Superhealth foi fundada nos tempos pós-dinastia
+              Carcaja de asa, um período de grandes transformações e renovações.
+              Nascemos com a missão única de cuidar da saúde dos bravos
+              guerreiros patagônicos, oferecendo o serviço mais avançado em
+              medição de IMC (Índice de Massa Corporal) que o mundo já viu.
+              Nossa equipe de especialistas viaja pelos montes e vales da
+              Patagônia, garantindo que cada guerreiro esteja em sua melhor
+              forma para enfrentar os desafios que a vida oferece. Aqui, na
+              Carlinhos Superhealth, acreditamos que a saúde é o bem mais
+              precioso, e por isso, estamos sempre comprometidos com a
+              excelência no cuidado físico e mental de nossos clientes. Afinal,
+              guerreiro forte é guerreiro saudável!
+            </div>
+          </div>
         </div>
-        <div>
-          <label>Informe esse peso: </label>
-          <input type="number" class="peso" id="peso" />
+
+        <div class="centralizador">
+          <div class="divisor">
+            <img src="file.png" />
+
+            <div class="test">
+              <label>Idade: </label>
+              <div>
+                <input
+                  type="text"
+                  maxlength="3"
+                  oninput="mascraletra(this)"
+                  placeholder="EX:19"
+                  required
+                />
+                <label>anos</label>
+              </div>
+
+              <label>Altura: </label>
+              <div>
+                <input
+                  required
+                  type="text"
+                  class="altura"
+                  id="altura"
+                  oninput="mascra(this)"
+                  placeholder="EX:185"
+                />
+                <label>cm </label>
+              </div>
+
+              <label>Peso: </label>
+              <div>
+                <input
+                  type="number"
+                  maxlength="6"
+                  class="peso"
+                  id="peso"
+                  placeholder="EX:60"
+                />
+                <label>kg </label>
+              </div>
+            </div>
+            <button>Calcular</button>
+          </div>
         </div>
-        <button>Calcular</button>
       </div>
     </div>
+
     <script>
       var button = document.querySelector("button");
       var valAltura = document.querySelector(".altura");
@@ -33,7 +113,7 @@
       button.onclick = function () {
         var altura = Number(valAltura.value);
         var peso = Number(valPeso.value);
-        var resultado = Number(peso / (altura * altura));
+        var resultado = Number(peso / (altura * altura)).toFixed(1);
 
         if (resultado < 18.5) {
           var tipoIMC = "Abaixo do peso";
