@@ -5,20 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Fazedor de IMC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
   </head>
   <body>
-    <p>
-      <label>Mete essa altura</label>
-      <input type="number" class="altura" id="altura" />
-    </p>
-    <p>
-      <label>Mete esse peso</label>
-      <input type="number" class="peso" id="peso" />
-    </p>
+    <div class="container">
+      <header>
+        <label>A calculadora que calcula o IMC de forma 99,9% exata</label>
+      </header>
 
-    <button>Aperte-me</button>
-
+      <div class="centralizador">
+        <div>
+          <label>Informe essa altura: </label>
+          <input type="number" class="altura" id="altura" maxlength="3"/>
+        </div>
+        <div>
+          <label>Informe esse peso: </label>
+          <input type="number" class="peso" id="peso" />
+        </div>
+        <button>Calcular</button>
+      </div>
+    </div>
     <script>
       var button = document.querySelector("button");
       var valAltura = document.querySelector(".altura");
@@ -27,7 +33,7 @@
       button.onclick = function () {
         var altura = Number(valAltura.value);
         var peso = Number(valPeso.value);
-        var resultado = Number(peso / (altura * altura)).toFixed(1);
+        var resultado = Number(peso / (altura * altura));
 
         if (resultado < 18.5) {
           var tipoIMC = "Abaixo do peso";
@@ -43,12 +49,25 @@
           var tipoIMC = "Obesidade Grau III ou considerada obesidade mórbida";
         }
 
-        alert(
-          "Seu IMC é: " +
-            resultado +
-            ", Ele é considerado um imc de valor: " +
-            tipoIMC
-        );
+        if (altura && peso) {
+          alert(
+            "Seu IMC é: " +
+              resultado +
+              ", Ele é considerado um imc de valor: " +
+              tipoIMC
+          );
+        }
+
+        if (!altura && !peso) {
+          alert("Tem que passar um valor para altura e peso");
+        }
+
+        if (altura && !peso) {
+          alert("Tem que passar um valor para peso");
+        }
+        if (!altura && peso) {
+          alert("Tem que passar um valor para altura ");
+        }
       };
     </script>
   </body>
