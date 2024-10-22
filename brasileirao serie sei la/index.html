@@ -34,60 +34,136 @@
       </div>
     </header>
 
-    <main class="tabela">
+    <main class="tabela"  id="tabelaContainer">
       <div class="cabeçalho">
         <div class="gap">Temporada</div>
         <div class="gap">2023</div>
       </div>
 
       <div class="indicadores">
-        <div class="contentflex">
+        <div class="espaçador">
           <div class="gap">Clube</div>
         </div>
 
         <div class="contentflex">
           <div class="espaçador">
-            <div class="gap1">Pts</div>
-            <div class="gap1">Pj</div>
-            <div class="gap1">Vit</div>
-            <div class="gap1">E</div>
-            <div class="gap1">DER</div>
-            <div class="gap1">GM</div>
-            <div class="gap1">GC</div>
-            <div class="gapre5">SG</div>
+            <div class="gap2">Pts</div>
+            <div class="gap3">Pj</div>
+            <div class="gap3">Vit</div>
+            <div class="gap2">E</div>
+            <div class="gap2">DER</div>
+            <div class="gap2">GM</div>
+            <div class="gap2">GC</div>
+            <div class="gap1">SG</div>
             <div class="gapre2">Ultimas 5</div>
           </div>
         </div>
       </div>
+      <script>
 
-      <div class="indicadores">
-        <div class="leftBorder">
-          <div class="contentflexInit">
-            <div>1</div>
-            <img src="pngwing.com.png" alt="imagem super bololo" />
-            <div>Palmearias</div>
-          </div>
-        </div>
+const times = [
+    { 
+        numero: 1, 
+        nome: "Palmearias", 
+        estatisticas: [81, 38, 23, 12, 3, 66, 27, 39], 
+        imagem: "palmeiras.png" 
+    },
+    { 
+        numero: 2, 
+        nome: "Santos", 
+        estatisticas: [70, 32, 19, 15, 5, 60, 22, 31], 
+        imagem: "https://imgs.search.brave.com/N0m6nHbZYKlmsoOxnDMA55-azMCj_ok3_X8yFQlHi5c/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy85/LzkwL0JyYXMlQzMl/QTNvX2RhX2NpZGFk/ZV9kZV9TJUMzJUEz/b19QYXVsby5zdmc" 
+    },
+    { 
+        numero: 3, 
+        nome: "São Paulo", 
+        estatisticas: [65, 30, 21, 14, 4, 55, 20, 28], 
+        imagem: "https://s4.static.brasilescola.uol.com.br/be/2023/09/escudo-do-sao-paulo.png" 
+    },
+    { 
+        numero: 4, 
+        nome: "Flamengo", 
+        estatisticas: [78, 36, 22, 10, 2, 64, 25, 37], 
+        imagem: "https://imgs.search.brave.com/eawfR3ZaTjBhjT0cHzNkKanOIhWxQaDmIwscgTSRbjY/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NjFWMEp2ZkRUYUwu/anBn" 
+    },
+    { 
+        numero: 5, 
+        nome: "Corinthians", 
+        estatisticas: [69, 31, 18, 13, 6, 58, 24, 30], 
+        imagem: "https://imgs.search.brave.com/vby6grWZA7zvtzx4jfVVjdde66Jpd3uET7Bpg975mS0/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9sb2dv/ZG93bmxvYWQub3Jn/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDE2/LzExL0NvcmludGhp/YW5zLWxvZ28tZXNj/dWRvLnBuZw" 
+    },
+    { 
+        numero: 6, 
+        nome: "Grêmio", 
+        estatisticas: [72, 33, 20, 12, 4, 61, 26, 32], 
+        imagem: "https://imgs.search.brave.com/PW235MRw1FpyfPHvXifIQSiMx4ICHwuqef1kVLA0mJc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zNC5z/dGF0aWMuYnJhc2ls/ZXNjb2xhLnVvbC5j/b20uYnIvYmUvMjAy/My8wOS9lc2N1ZG8t/ZG8tZ3JlbWlvLmpw/Zw" 
+    },
+    { 
+        numero: 7, 
+        nome: "Atlético Mineiro", 
+        estatisticas: [74, 34, 21, 13, 3, 63, 28, 35], 
+        imagem: "https://imgs.search.brave.com/foMWtm5J7gWRrBRyAe7n9OrT2HFh2eMQTk2iNE4oTOo/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9OUV9OUF83/MzI3MjMtTUxCNzcy/MzUyODQzNzlfMDYy/MDI0LVcud2VicA" 
+    },
+    { 
+        numero: 8, 
+        nome: "Cruzeiro", 
+        estatisticas: [68, 29, 17, 15, 5, 57, 23, 29], 
+        imagem: "https://imgs.search.brave.com/ezWvjVVgpzlo1sZP1zgkEA0xsCiXDcTTiBy2Cpy31_Y/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly93d3cu/aW1hZ2Vuc2VtcG5n/LmNvbS5ici93cC1j/b250ZW50L3VwbG9h/ZHMvMjAyMS8wMS9F/c2N1ZG8tQ3J1emVp/cm8tUG5nLTEwMjR4/MTAyNC5wbmc" 
+    },
+    { 
+        numero: 9, 
+        nome: "Internacional", 
+        estatisticas: [73, 35, 22, 11, 4, 62, 27, 34], 
+        imagem: "https://imgs.search.brave.com/CEdNhP5O_s8OPBj5gbbmUPjYI9X7E7SY_382cpClOjU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9m/L2YxL0VzY3Vkb19k/b19TcG9ydF9DbHVi/X0ludGVybmFjaW9u/YWwuc3Zn" 
+    },
+    { 
+        numero: 10, 
+        nome: "Vasco da Gama", 
+        estatisticas: [67, 30, 19, 14, 6, 56, 22, 31], 
+        imagem: "https://imgs.search.brave.com/5FzHbcir2FsL3fDMvdheSQ7Se9AUBi5MbPOkwQ1RrrQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMuZGljaW9uYXJp/b2Rlc2ltYm9sb3Mu/Y29tLmJyL3VwbG9h/ZC82MC84MS9jb25o/ZWNhLW8tc2lnbmlm/aWNhZG8tZG8tZXNj/dWRvLWRvLXZhc2Nv/LWRhLWdhbWEtNV94/bC5wbmc" 
+    }
+];
 
-        <div class="resultContent">
-          <div class="gap1">81</div>
-          <div class="gap1">38</div>
-          <div class="gap1">23</div>
-          <div class="gap1">12</div>
-          <div class="gapre">3</div>
-          <div class="gapre2">66</div>
-          <div class="gap1">27</div>
-          <div class="gapre3">39</div>
-          <div class="gap1">
-            <i class="fa-solid fa-circle-xmark"></i>
-            <i class="fa-solid fa-circle-check"></i>
-            <i class="fa-solid fa-circle-minus"></i>
-            <i class="fa-solid fa-circle-minus"></i>
-            <i class="fa-solid fa-circle-minus"></i>
-          </div>
-        </div>
-      </div>
 
+        function gerarIndicadores(time) {
+          return `
+          
+            <div class="indicadores">
+              <div class="leftBorder">
+                <div class="contentflexInit">
+                  <div>${time.numero}</div>
+                  <img src=${time.imagem} alt="imagem super bololo" />
+                  <div>${time.nome}</div>
+                </div>
+              </div>
+      
+              <div class="resultContent">
+                ${time.estatisticas.map(num => `<div class="gap1">${num}</div>`).join('')}
+                <div class="gap1">
+                  <i class="fa-solid fa-circle-xmark"></i>
+                  <i class="fa-solid fa-circle-check"></i>
+                  <i class="fa-solid fa-circle-minus"></i>
+                  <i class="fa-solid fa-circle-minus"></i>
+                  <i class="fa-solid fa-circle-minus"></i>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+      
+      
+        function carregarTabela() {
+          const tabelaContainer = document.getElementById('tabelaContainer');
+          times.forEach(time => {
+            tabelaContainer.innerHTML += gerarIndicadores(time);
+          });
+        }
+      
+        
+        carregarTabela();
+      </script>
+      
+     
       <div class="mid">
         <div class="summario">
           <div class="last">

@@ -105,6 +105,22 @@ img {
   margin: 15px;
 }
 
+.gap2 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.gap3 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 15px;
+  margin-right: 18px;
+}
+
+
+
 .gapre {
   margin: 15px;
   margin-right: 20px;
@@ -113,7 +129,9 @@ img {
 .gapre2 {
   margin: 15px;
   margin-right: 30px;
+  margin-left:40px ;
 }
+
 .gapre3 {
   margin: 15px;
   margin-right: 45px;
@@ -158,7 +176,5 @@ img {
 }
 
 .leftBorder{
-  border-left: 5px solid #ff6e28;
-
+  border-left: 5px solid #347bed;
 }
-
