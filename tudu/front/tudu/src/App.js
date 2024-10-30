@@ -52,7 +52,7 @@ function App() {
     <div className="App">
       <header className="App-header">Todu do Rafaek</header>
       <main className="main-css">
-        <div>
+        <div className="espaçador">
           <div>Novas tarefas</div>
           <div>Digite o nome para a tarefa </div>
           <input
@@ -60,12 +60,14 @@ function App() {
             value={name}
             onChange={handleChange(setName)}
           ></input>
-          <div>digite uma descrição </div>
-          <input
+          <div>Digite uma descrição </div>
+          <textarea
+            className="inputdesc"
+            maxLength={500}
             placeholder=" adicione uma descrição a sua tarefas"
             value={descricao}
             onChange={handleChange(setDescricao)}
-          ></input>
+          ></textarea>
           <div>
             <button
               className="botaoTask"
@@ -77,25 +79,27 @@ function App() {
           </div>
         </div>
         <div>
-          <p>tarefa abertas:</p>
-          {tasks.map((tarefas) => (
-            <div className="task">
-              <div className="cards">
-                <div>
-                  <div>tarefa: {tarefas.name}</div>
-                  <div>Descrição: {tarefas.descricao}</div>
+            <p>Tarefa abertas:</p>
+          <div className="scrollable">
+            {tasks.map((tarefas) => (
+              <div className="task">
+                <div className="cards">
+                  <div>
+                    <div className="text">Tarefa: {tarefas.name}</div>
+                    <div className="text">Descrição: {tarefas.descricao}</div>
+                  </div>
+                  <button
+                    className="botaoDeletar"
+                    onClick={() => {
+                      DeletarVaga(tarefas.id);
+                    }}
+                  >
+                    Deletar task
+                  </button>
                 </div>
-                <button
-                  className="botaoDeletar"
-                  onClick={() => {
-                    DeletarVaga(tarefas.id);
-                  }}
-                >
-                  Deletar task
-                </button>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </main>
     </div>
